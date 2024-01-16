@@ -1,19 +1,37 @@
 package com.java.practice.mostShortWordDistance;
 
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class Main {
 
 	public String Tsolution(String str, char c) {
 		
-		char[] charArray = str.toCharArray();
+		int answer[] = new int[str.length()];
+		int t = 1000;
 		
-		for(int i = 0; i < charArray.length; i++) {
-			System.out.println(str.indexOf(c));
-			
+		for(int i = 0; i < str.length(); i++) {
+			if(str.charAt(i) == c) {
+				t = 0;
+				answer[i] = t;
+			}else {
+				t++;
+				answer[i] = t;
+			}
 		}
 		
-		return str;
+		t = 1000;
+		for(int j = str.length() - 1; j >= 0; j--) {
+			if(str.charAt(j) == c) {
+				t = 0;
+			}else {
+				t++;
+				if(answer[j] > t) {
+					answer[j] = t;
+				}
+			}
+		}
+		return Arrays.toString(answer).replace("[", "").replace("]", "").replace(",", "");
 	}
 	
 	public static void main(String[] args) {
@@ -22,8 +40,8 @@ public class Main {
 		Scanner sc = new Scanner(System.in);
 		Main m = new Main();
 		
-		char c = sc.nextLine().charAt(0);
-		String inputStr = sc.nextLine();
+		String inputStr = sc.next();
+		char c = sc.next().charAt(0);
 		
 		System.out.println(m.Tsolution(inputStr,c));
 		
