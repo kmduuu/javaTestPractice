@@ -1,30 +1,36 @@
 package com.java.practice.biggerNumber;
 
-import java.util.Arrays;
 import java.util.Scanner;
+
+// issue : 12값이 1, 2 단일로 출력되는 문제점
+// ==> split으로 해결하면 될듯
 
 public class Main {
 
 	protected String Tsolution(int num, String str) {
 		
 		String answer = "";
-		str = str.replace(" ", "");
 		
-		System.out.println("바뀐 str : "+str);
+		String[] integer = str.split(" ");
 		
-		char val[] = str.toCharArray();
+//		for (String string : integer) {
+//			
+//		} // enforced for not works.
+
+		int intArray[] = new int[num];
 		
-		System.out.println(Arrays.toString(val));
+		answer += integer[0]+" ";
 		
-		answer += val[0]+" ";
-		
-		for(int i = 1; i < num; i++) {
-			if(val[i] > val[i-1]) answer += val[i]+" "; System.out.println(answer);
+		for (int i = 1; i < num; i++) {
+			
+			intArray[i] = Integer.parseInt(integer[i]);
+			intArray[i-1] = Integer.parseInt(integer[i-1]);
+			
+			if(intArray[i] > intArray[i-1]) {answer+= integer[i]+" "; }
+			
 		}
-		
 		return answer;
 	}
-	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 
