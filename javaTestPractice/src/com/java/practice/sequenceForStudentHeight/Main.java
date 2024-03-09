@@ -13,7 +13,7 @@ public class Main {
 				if(arr[i] > arr[j-1]) {System.out.println("i값 : "+i+" j값 : "+j+","+"현재 값 : "+arr[i]);}
 			}
 		}
-		
+		System.out.println("수정 중...일단 커밋해두고 싶엉...");
 		return answer;
 	}
 	
