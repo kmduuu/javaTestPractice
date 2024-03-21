@@ -5,11 +5,61 @@ import java.util.*;
 
 class Main
 {
-	protected int Program(int num, String str){
-		
+	protected int Program(int num, int[][] intArray){
+
+	/* ==> 계산 방법을 무식 -> 다이나믹 프로그래밍 바꾸기 */
+
 		int answer = 0;
-		
-		// System.out.println("num :"+num+", str : "+str);
+		int value = 0;
+
+		// 1. 각 행의 합 계산
+		for(int i = 0; i < num; i++){
+
+			value = 0;	
+
+			for(int j = 0; j < num; j++){
+				
+				value += intArray[i][j];
+			}
+			if(answer <= value){
+				answer = value;
+			}
+		}
+		// 2. 각 열의 합 계산
+		for(int i = 0; i < num; i++){
+
+			value = 0;	
+
+			for(int j = 0; j < num; j++){
+				
+				value += intArray[j][i];
+			}
+			if(answer <= value){
+				answer = value;
+			}
+		}
+		// 3. 대각선 합 계산 - 1
+		value = 0;
+		for(int i = 0; i < num; i++){
+
+			value += intArray[i][i];
+
+			if(answer <= value){
+				answer = value;
+			}
+		}
+		// 4. 대각선 합 계산 - 2
+		value = 0;
+		for(int i = num - 1; i >= 0; i--){
+			
+			int sqs = -1 * (i+1);
+
+			value += intArray[i][num+sqs];
+
+			if(answer <= value){
+				answer = value;
+			}
+		}
 
 		return answer;
 	}
@@ -21,12 +71,13 @@ class Main
 		Scanner sc = new Scanner(System.in);
 
 		int num = sc.nextInt();
-		int[][] strArray = new int[5][5]; 
+		int[][] intArray = new int[num][num]; 
 
-		for(int i = 0; i < 5; i++){
-			for(int j = 0; j < 5; j++){
-				System.out.println(strArray[i][j]);
+		for(int i = 0; i < num; i++){
+			for(int j = 0; j < num; j++){
+				intArray[i][j] = sc.nextInt();
 			}
 		}
-	}
+		System.out.println(m.Program(num, intArray));
+	} 
 }

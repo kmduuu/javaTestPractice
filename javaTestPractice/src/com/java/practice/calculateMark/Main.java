@@ -27,6 +27,7 @@ class Main
 	}
 
 	public static void main(String[] args) throws Exception{
+		
 		Main m = new Main();
 		
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
