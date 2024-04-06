@@ -12,7 +12,7 @@
 <br>
 섹션 5. Stack, Queue(자료구조)
 <br>
-섹션 6. Sorting and Searching(정렬, 이분검색과 결정알고리즘) ==> 2024.04.06 진행중
+섹션 6. Sorting and Searching(정렬, 이분검색과 결정알고리즘) ==> # 2024.04.06 진행중
 <br>
 섹션 7. Recursive, Tree, Graph(DFS, BFS 기초)
 <br>
